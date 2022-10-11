@@ -17,7 +17,15 @@ rundeckPlugin(NotificationPlugin){
             summary: "A rundeck job has started",
             themeColor: "${color}",
             sections: [[
-                facts:[[name: "jobID", value:"#${execution.job.id}"],[name: "Started At", value:"#${execution.dateStarted}"],[name: "Project", value:"#${execution.project}"],[name: "Group", value:"#${execution.job.group}"],[name: "Job Name", value:"#${execution.job.name}"],[name: "Description", value:"#${execution.job.description}"],[name: "ExecutionID", value:"#${execution.id}"],[name: "Execution status", value:"#${execution.status}"]]
+                facts:[
+                  [name: "jobID", value:"#${execution.job.id}"],
+                  [name: "Started At", value:"#${execution.dateStarted}"],
+                  [name: "Project", value:"#${execution.project}"],
+                  [name: "Group", value:"#${execution.job.group}"],
+                  [name: "Job Name", value:"#${execution.job.name}"],
+                  [name: "Description", value:"#${execution.job.description}"],
+                  [name: "ExecutionID", value:"#${execution.id}"],
+                  [name: "Execution status", value:"#${execution.status}"]]
             ]],
             potentialAction: [
                 [
@@ -42,7 +50,15 @@ rundeckPlugin(NotificationPlugin){
             summary: "A rundeck job has failed",
             themeColor: "${color}",
             sections: [[
-                facts:[[name: "jobID", value:"#${execution.job.id}"],[name: "Started At", value:"#${execution.dateStarted}"],[name: "Project", value:"#${execution.project}"],[name: "Group", value:"#${execution.job.group}"],[name: "Job Name", value:"#${execution.job.name}"],[name: "Description", value:"#${execution.job.description}"],[name: "ExecutionID", value:"#${execution.id}"],[name: "Execution status", value:"#${execution.status}"]]
+                facts:[
+                  [name: "jobID", value:"#${execution.job.id}"],
+                  [name: "Started At", value:"#${execution.dateStarted}"],
+                  [name: "Project", value:"#${execution.project}"],
+                  [name: "Group", value:"#${execution.job.group}"],
+                  [name: "Job Name", value:"#${execution.job.name}"],
+                  [name: "Description", value:"#${execution.job.description}"],
+                  [name: "ExecutionID", value:"#${execution.id}"],
+                  [name: "Execution status", value:"#${execution.status}"]]
             ]],
             potentialAction: [
                 [
@@ -67,7 +83,15 @@ rundeckPlugin(NotificationPlugin){
             summary: "A rundeck job has failed on retry",
             themeColor: "${color}",
             sections: [[
-                facts:[[name: "jobID", value:"#${execution.job.id}"],[name: "Started At", value:"#${execution.dateStarted}"],[name: "Project", value:"#${execution.project}"],[name: "Group", value:"#${execution.job.group}"],[name: "Job Name", value:"#${execution.job.name}"],[name: "Description", value:"#${execution.job.description}"],[name: "ExecutionID", value:"#${execution.id}"],[name: "Execution status", value:"#${execution.status}"]]
+                facts:[
+                  [name: "jobID", value:"#${execution.job.id}"],
+                  [name: "Started At", value:"#${execution.dateStarted}"],
+                  [name: "Project", value:"#${execution.project}"],
+                  [name: "Group", value:"#${execution.job.group}"],
+                  [name: "Job Name", value:"#${execution.job.name}"],
+                  [name: "Description", value:"#${execution.job.description}"],
+                  [name: "ExecutionID", value:"#${execution.id}"],
+                  [name: "Execution status", value:"#${execution.status}"]]
             ]],
             potentialAction: [
                 [
@@ -92,7 +116,15 @@ rundeckPlugin(NotificationPlugin){
             summary: "A rundeck job has finished with success",
             themeColor: "${color}",
             sections: [[
-                facts:[[name: "jobID", value:"#${execution.job.id}"],[name: "Started At", value:"#${execution.dateStarted}"],[name: "Project", value:"#${execution.project}"],[name: "Group", value:"#${execution.job.group}"],[name: "Job Name", value:"#${execution.job.name}"],[name: "Description", value:"#${execution.job.description}"],[name: "ExecutionID", value:"#${execution.id}"],[name: "Execution status", value:"#${execution.status}"]]
+                facts:[
+                  [name: "jobID", value:"#${execution.job.id}"],
+                  [name: "Started At", value:"#${execution.dateStarted}"],
+                  [name: "Project", value:"#${execution.project}"],
+                  [name: "Group", value:"#${execution.job.group}"],
+                  [name: "Job Name", value:"#${execution.job.name}"],
+                  [name: "Description", value:"#${execution.job.description}"],
+                  [name: "ExecutionID", value:"#${execution.id}"],
+                  [name: "Execution status", value:"#${execution.status}"]]
             ]],
             potentialAction: [
                 [
