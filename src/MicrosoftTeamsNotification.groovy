@@ -1,7 +1,6 @@
 import com.dtolabs.rundeck.plugins.notification.NotificationPlugin
 import groovy.json.JsonOutput
 
-
 rundeckPlugin(NotificationPlugin){
     title="Microsoft Teams notification Plugin"
     description="Allows to set up notification for Microsoft Teams chats for a channel, via Webhook URL. To use it you will have to obtain webhook for your channel first and setit up."
@@ -15,9 +14,11 @@ rundeckPlugin(NotificationPlugin){
         color = "696969"
         json_payload = JsonOutput.toJson([
             title: "[${type}] Rundeck Job Notification - ${execution.project}:${execution.job.group}:${execution.job.name}",
-            summary: "Rundeck Job Notification",
-            text: "job id: #${execution.job.id}, job project: ${execution.project}, job group: ${execution.job.group}, job name: ${execution.job.name}, job description: ${execution.job.description}, execution id: #${execution.id}, execution status: ${execution.status}, execution started at: ${execution.dateStarted}",
+            summary: "A rundeck job has started",
             themeColor: "${color}",
+            sections: [[
+                facts:[[name: "jobID", value:"#${execution.job.id}"],[name: "Started At", value:"#${execution.dateStarted}"],[name: "Project", value:"#${execution.project}"],[name: "Group", value:"#${execution.job.group}"],[name: "Job Name", value:"#${execution.job.name}"],[name: "Description", value:"#${execution.job.description}"],[name: "ExecutionID", value:"#${execution.id}"],[name: "Execution status", value:"#${execution.status}"]]
+            ]],
             potentialAction: [
                 [
                     "@context": "http://schema.org",
@@ -38,9 +39,11 @@ rundeckPlugin(NotificationPlugin){
         //Single argument, the configuration properties are available automatically
         json_payload = JsonOutput.toJson([
             title: "[${type}] Rundeck Job Notification - ${execution.project}:${execution.job.group}:${execution.job.name}",
-            summary: "Rundeck Job Notification",
-            text: "job id: #${execution.job.id}, job project: ${execution.job.project}, job group: ${execution.job.group}, job name: ${execution.job.name}, job description: ${execution.job.description}, execution id: #${execution.id}, execution status: ${execution.status}, execution started at: ${execution.dateStarted}, execution ended at: ${execution.dateEnded}",
+            summary: "A rundeck job has failed",
             themeColor: "${color}",
+            sections: [[
+                facts:[[name: "jobID", value:"#${execution.job.id}"],[name: "Started At", value:"#${execution.dateStarted}"],[name: "Project", value:"#${execution.project}"],[name: "Group", value:"#${execution.job.group}"],[name: "Job Name", value:"#${execution.job.name}"],[name: "Description", value:"#${execution.job.description}"],[name: "ExecutionID", value:"#${execution.id}"],[name: "Execution status", value:"#${execution.status}"]]
+            ]],
             potentialAction: [
                 [
                     "@context": "http://schema.org",
@@ -54,16 +57,18 @@ rundeckPlugin(NotificationPlugin){
 
         return true
     }
-    
+
     onretryablefailure {
         type = "RETRY"
         color = "FFB900"
         //Single argument, the configuration properties are available automatically
         json_payload = JsonOutput.toJson([
             title: "[${type}] Rundeck Job Notification - ${execution.project}:${execution.job.group}:${execution.job.name}",
-            summary: "Rundeck Job Notification",
-            text: "job id: #${execution.job.id}, job project: ${execution.job.project}, job group: ${execution.job.group}, job name: ${execution.job.name}, job description: ${execution.job.description}, execution id: #${execution.id}, execution status: ${execution.status}, execution started at: ${execution.dateStarted}, execution ended at: ${execution.dateEnded}",
+            summary: "A rundeck job has failed on retry",
             themeColor: "${color}",
+            sections: [[
+                facts:[[name: "jobID", value:"#${execution.job.id}"],[name: "Started At", value:"#${execution.dateStarted}"],[name: "Project", value:"#${execution.project}"],[name: "Group", value:"#${execution.job.group}"],[name: "Job Name", value:"#${execution.job.name}"],[name: "Description", value:"#${execution.job.description}"],[name: "ExecutionID", value:"#${execution.id}"],[name: "Execution status", value:"#${execution.status}"]]
+            ]],
             potentialAction: [
                 [
                     "@context": "http://schema.org",
@@ -84,8 +89,11 @@ rundeckPlugin(NotificationPlugin){
         //with no args, there is a "configuration" and an "execution" variable in the context
         json_payload = JsonOutput.toJson([
             title: "[${type}] Rundeck Job Notification - ${execution.project}:${execution.job.group}:${execution.job.name}",
-            text: "job id: #${execution.job.id}, job project: ${execution.job.project}, job group: ${execution.job.group}, job name: ${execution.job.name}, job description: ${execution.job.description}, execution id: #${execution.id}, execution status: ${execution.status}, execution started at: ${execution.dateStarted}, execution ended at: ${execution.dateEnded}",
+            summary: "A rundeck job has finished with success",
             themeColor: "${color}",
+            sections: [[
+                facts:[[name: "jobID", value:"#${execution.job.id}"],[name: "Started At", value:"#${execution.dateStarted}"],[name: "Project", value:"#${execution.project}"],[name: "Group", value:"#${execution.job.group}"],[name: "Job Name", value:"#${execution.job.name}"],[name: "Description", value:"#${execution.job.description}"],[name: "ExecutionID", value:"#${execution.id}"],[name: "Execution status", value:"#${execution.status}"]]
+            ]],
             potentialAction: [
                 [
                     "@context": "http://schema.org",
